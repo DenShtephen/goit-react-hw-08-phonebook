@@ -23,6 +23,8 @@ const authenticateUser = async (url, credentials, thunkAPI) => {
   }
 };
 
+console.log(setAuthToken);
+
 export const register = createAsyncThunk(
   'auth/signup',
   async (credentials, thunkAPI) => {

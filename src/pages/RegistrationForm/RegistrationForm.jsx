@@ -31,8 +31,8 @@ const RegisterForm = () => {
 
     try {
       await dispatch(register(newUser));
-
       navigate('/contacts');
+      console.log(newUser);
     } catch (error) {
       console.error('Registration failed:', error);
     }
