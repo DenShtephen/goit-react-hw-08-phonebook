@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 export const HomePage = () => {
   return (
     <section>
+      <nav>
+        <NavLink to={'/register'}>Register</NavLink>
+        <NavLink to={'/login'}>Login</NavLink>
+      </nav>
       <h1>
         Welcome to 'Phonebook' your own world of contacts and possibilities!
       </h1>
@@ -38,11 +42,6 @@ export const HomePage = () => {
           </li>
         </ul>
       </div>
-
-      <nav>
-        <NavLink to={'/register'}>Register</NavLink>
-        <NavLink to={'/login'}>Login</NavLink>
-      </nav>
 
       <p>&copy; 2023 Phonebook by DenShtephen</p>
     </section>
