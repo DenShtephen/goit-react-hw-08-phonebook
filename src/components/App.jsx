@@ -8,7 +8,6 @@ import { Route, Routes } from 'react-router-dom';
 import PublicRoute from 'PublicRoute/PublicRoute';
 import PrivateRoute from 'PrivateRoute/PrivateRoute';
 import { refreshThunk } from 'redux/auth/AuthThunk';
-import { getStateToken } from 'redux/auth/selectors';
 
 const Header = lazy(() => import('./UserMenu/UserMenu'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -20,16 +19,13 @@ const LoginForm = lazy(() => import('../pages/LoginForm/LoginForm'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const token = useSelector(getStateToken);
 
   useEffect(() => {
-    if (token) {
-      dispatch(refreshThunk());
-    }
-  }, [token, dispatch]);
+    dispatch(refreshThunk());
+  }, [dispatch]);
 
   return (
-    <div className="app-container">
+    <div>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Header />}>

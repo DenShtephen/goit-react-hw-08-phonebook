@@ -15,15 +15,12 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContacts = createAsyncThunk(
   'contact/add-contact',
-  async ({ name, number }, thinkAPI) => {
+  async (contact, thunkAPI) => {
     try {
-      const response = await instance.post('/contacts', {
-        name: name,
-        number: number,
-      });
+      const response = await instance.post('/contacts', contact);
       return response.data;
     } catch (error) {
-      return thinkAPI.rejectWithValue(error._message);
+      return thunkAPI.rejectWithValue({ message: error.message });
     }
   }
 );

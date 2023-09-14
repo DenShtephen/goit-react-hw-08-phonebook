@@ -14,14 +14,14 @@ const Header = () => {
 
   return (
     <>
-      <header>
+      <header className="header">
         {!profile && <NavLink to={'/'}>Home</NavLink>}
         {profile && (
-          <div>
-            <p>{profile.email}</p>
+          <div className="user-wrapper">
+            <p className="user-info">{profile.email}</p>
             <button
               type="submit"
-              className="delete-button"
+              className="logout-button"
               onClick={handleLogOut}
             >
               Logout

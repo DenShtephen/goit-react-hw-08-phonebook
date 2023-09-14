@@ -1,7 +1,20 @@
 @import-normalize; /* bring in normalize.css styles */
 
-body {
-  background-color: gray;
+.header {
+  padding-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+  border-radius: 5px;
+}
+
+.list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .app-container {
@@ -74,4 +87,33 @@ body {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
+}
+
+.logout-button {
+  width: 150px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.user-wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-info {
+  color: rgba(10, 34, 74, 1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
 }

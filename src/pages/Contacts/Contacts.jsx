@@ -13,7 +13,7 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="app-container">
       <Section title="PhoneBook">
         <ContactForm />
       </Section>

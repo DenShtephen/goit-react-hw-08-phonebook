@@ -55,6 +55,10 @@ export const refreshThunk = createAsyncThunk(
     const stateThunk = thunkAPI.getState();
     const token = stateThunk.auth.token;
 
+    if (!token) {
+      return thunkAPI.rejectWithValue();
+    }
+
     try {
       setAuthToken(token);
       const userProfile = await instance.get('/users/current');
