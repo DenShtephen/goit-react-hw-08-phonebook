@@ -16,7 +16,7 @@ const Header = () => {
     <>
       <header>
         {!profile && (
-          <nav>
+          <nav className="header">
             <NavLink to={'/'}>Home</NavLink>
             <div className="navigation">
               <NavLink to={'/register'} className="navigation-user">
