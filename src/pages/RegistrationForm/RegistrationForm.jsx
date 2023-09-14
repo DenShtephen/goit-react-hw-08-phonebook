@@ -21,7 +21,7 @@ const RegisterForm = () => {
     }));
   };
 
-  const handleSubmit = async evt => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const newUser = {
       name: userInfo.userName,
@@ -29,13 +29,7 @@ const RegisterForm = () => {
       password: userInfo.password,
     };
 
-    try {
-      await dispatch(register(newUser));
-      navigate('/contacts');
-      console.log(newUser);
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
+    dispatch(register(newUser));
   };
 
   return (

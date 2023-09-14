@@ -10,7 +10,6 @@ const LoginForm = () => {
   });
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -21,19 +20,14 @@ const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = async evt => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const userCredentials = {
       email: loginInfo.email,
       password: loginInfo.password,
     };
 
-    try {
-      await dispatch(logIn(userCredentials));
-      navigate('/contacts');
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+    dispatch(logIn(userCredentials));
   };
 
   return (
