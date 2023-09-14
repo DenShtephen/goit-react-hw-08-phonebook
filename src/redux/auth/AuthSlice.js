@@ -1,10 +1,4 @@
-import {
-  getProfileThunk,
-  logIn,
-  logOut,
-  refreshThunk,
-  register,
-} from 'redux/auth/AuthThunk';
+import { logIn, logOut, refreshThunk, register } from 'redux/auth/AuthThunk';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -13,6 +7,7 @@ const initialState = {
   isLoading: false,
   error: '',
   profile: null,
+  isAuth: false,
 };
 
 const handlePending = state => {
@@ -29,6 +24,8 @@ const handleFulfilled = (state, { payload }) => {
 const handleRejected = state => {
   state.isLoading = false;
   state.error = '';
+  state.token = '';
+  state.profile = null;
 };
 
 const handleFulfilledProfile = (state, { payload }) => {
@@ -52,12 +49,11 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, handleFulfilled)
       .addCase(logOut.fulfilled, handlelogOut)
       .addCase(logIn.fulfilled, handleFulfilled)
-      .addCase(getProfileThunk.fulfilled, handleFulfilledProfile)
       .addCase(refreshThunk.fulfilled, handleFulfilledProfile)
       .addCase(logIn.pending, handlePending)
-      .addCase(getProfileThunk.pending, handlePending)
+      .addCase(refreshThunk.pending, handlePending)
       .addCase(logIn.rejected, handleRejected)
-      .addCase(getProfileThunk.rejected, handleRejected);
+      .addCase(refreshThunk.rejected, handleRejected);
   },
 });
 

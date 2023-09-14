@@ -2,12 +2,13 @@
 // import { ContactList } from './ContactList/ContactList';
 // import { Filter } from './Filter/Filter';
 // import { Section } from './Section/Section';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import PublicRoute from 'PublicRoute/PublicRoute';
 import PrivateRoute from 'PrivateRoute/PrivateRoute';
 import { refreshThunk } from 'redux/auth/AuthThunk';
+import { getStateToken } from 'redux/auth/selectors';
 
 const Header = lazy(() => import('./UserMenu/UserMenu'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -19,10 +20,13 @@ const LoginForm = lazy(() => import('../pages/LoginForm/LoginForm'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const token = useSelector(getStateToken);
 
   useEffect(() => {
-    dispatch(refreshThunk());
-  }, [dispatch]);
+    if (token) {
+      dispatch(refreshThunk());
+    }
+  }, [token, dispatch]);
 
   return (
     <div className="app-container">

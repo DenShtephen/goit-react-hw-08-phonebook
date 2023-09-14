@@ -1,19 +1,15 @@
 import { Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import { logOut } from '../../redux/auth/AuthThunk';
 import { getStateAuth } from '../../redux/auth/selectors';
-import { clearAuthToken } from '../../redux/auth/AuthThunk';
 
 const Header = () => {
   const { profile } = useSelector(getStateAuth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleLogOut = () => {
     dispatch(logOut());
-    navigate('/');
-    clearAuthToken();
   };
 
   return (
@@ -23,7 +19,11 @@ const Header = () => {
         {profile && (
           <div>
             <p>{profile.email}</p>
-            <button type="submit" onClick={handleLogOut}>
+            <button
+              type="submit"
+              className="delete-button"
+              onClick={handleLogOut}
+            >
               Logout
             </button>
           </div>

@@ -5,6 +5,7 @@ import { getStateToken } from 'redux/auth/selectors';
 const PrivateRoute = ({ children }) => {
   const isAuth = useSelector(getStateToken);
   const location = useLocation();
+
   return isAuth ? children : <Navigate to="/" state={location} />;
 };
 

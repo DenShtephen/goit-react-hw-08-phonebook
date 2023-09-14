@@ -13,29 +13,29 @@ export const clearAuthToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
 
-const authenticateUser = async (url, credentials, thunkAPI) => {
-  try {
-    const res = await instance.post(url, credentials);
-    setAuthToken(res.data.token);
-    return res.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-};
-
-console.log(setAuthToken);
-
 export const register = createAsyncThunk(
-  'auth/signup',
+  'auth/register',
   async (credentials, thunkAPI) => {
-    return authenticateUser('/users/signup', credentials, thunkAPI);
+    try {
+      const res = await instance.post('/users/signup', credentials);
+      setAuthToken(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
-    return authenticateUser('/users/login', credentials, thunkAPI);
+    try {
+      const res = await instance.post('/users/login', credentials);
+      setAuthToken(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
@@ -48,31 +48,19 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
-export const getProfileThunk = createAsyncThunk(
-  'auth/profile',
-  async (_, thunkAPI) => {
-    try {
-      const res = await instance.get('/users/current');
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',
+
   async (_, thunkAPI) => {
     const stateThunk = thunkAPI.getState();
     const token = stateThunk.auth.token;
 
-    if (!token) return;
-
     try {
       setAuthToken(token);
-      const userProfile = await getProfileThunk();
-      return userProfile;
+      const userProfile = await instance.get('/users/current');
+      return userProfile.data;
     } catch (error) {
+      clearAuthToken();
       return thunkAPI.rejectWithValue(error.message);
     }
   }

@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+body {
+  background-color: gray;
+}
+
 .app-container {
   max-width: 600px;
   margin: 0 auto;
