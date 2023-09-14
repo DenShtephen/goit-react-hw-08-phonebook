@@ -2,7 +2,7 @@
 // import { ContactList } from './ContactList/ContactList';
 // import { Filter } from './Filter/Filter';
 // import { Section } from './Section/Section';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import PublicRoute from 'PublicRoute/PublicRoute';

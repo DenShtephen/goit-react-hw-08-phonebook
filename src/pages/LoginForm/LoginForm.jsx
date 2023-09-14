@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/AuthThunk';
-import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [loginInfo, setLoginInfo] = useState({

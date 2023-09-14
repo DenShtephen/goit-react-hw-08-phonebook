@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/AuthThunk';
-import { useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState({
     userName: '',
