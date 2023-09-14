@@ -1,10 +1,20 @@
 @import-normalize; /* bring in normalize.css styles */
 
 .header {
-  padding-bottom: 20px;
+  background-color: #f5f5f5;
+  color: rgba(10, 34, 74, 1);
+  padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-
   border-radius: 5px;
+  position: relative;
+
+  font-size: 30px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+
+  display: flex;
+  justify-content: space-around;
 }
 
 .list {
@@ -18,7 +28,7 @@
 }
 
 .app-container {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
@@ -104,16 +114,136 @@
 }
 
 .user-wrapper {
+  position: relative;
+  background-color: #f5f5f5;
+  color: #fff;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  border-radius: 5px;
   display: flex;
-  justify-content: space-around;
-  gap: 16px;
   align-items: center;
-  margin-bottom: 40px;
+  justify-content: space-around;
+
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .user-info {
   color: rgba(10, 34, 74, 1);
+
   font-weight: 400;
   font-size: 18px;
   line-height: 1.7;
+}
+
+.navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 20px;
+  gap: 32px;
+  display: flex;
+  padding-bottom: 25px;
+  padding-right: 30px;
+}
+
+.navigation-user:hover {
+  color: red;
+  border-radius: 5px;
+}
+
+.welcome-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  max-width: 1000px;
+  max-height: 1000px;
+  margin: 0 auto;
+}
+
+.welcome-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.welcome-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.welcome-item {
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.welcome-text::before {
+  content: '\2022';
+  margin-right: 10px;
+  color: #64b5f6;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.welcome-footer {
+  color: #888;
+}
+
+.registration-container {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.registration-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.registration-input {
+  margin-bottom: 10px;
+}
+
+.registration-input label {
+  font-size: 18px;
+  color: #666;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  align-items: flex-end;
+}
+
+.registration-input input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.registration-button button {
+  background-color: #64b5f6;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.registration-button button:hover {
+  background-color: #42a5f5;
 }

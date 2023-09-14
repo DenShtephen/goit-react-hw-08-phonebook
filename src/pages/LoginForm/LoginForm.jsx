@@ -30,10 +30,10 @@ const LoginForm = () => {
   };
 
   return (
-    <section>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <section className="registration-container">
+      <h1 className="registration-title">Login</h1>
+      <form className="registration-form" onSubmit={handleSubmit}>
+        <div className="registration-input">
           <label htmlFor="userEmail">Email:</label>
           <input
             type="text"
@@ -45,7 +45,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div>
+        <div className="registration-input">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -57,7 +57,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div>
+        <div className="registration-button">
           <button type="submit">Login</button>
         </div>
       </form>

@@ -14,8 +14,20 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
-        {!profile && <NavLink to={'/'}>Home</NavLink>}
+      <header>
+        {!profile && (
+          <nav>
+            <NavLink to={'/'}>Home</NavLink>
+            <div className="navigation">
+              <NavLink to={'/register'} className="navigation-user">
+                Register
+              </NavLink>
+              <NavLink to={'/login'} className="navigation-user">
+                Login
+              </NavLink>
+            </div>
+          </nav>
+        )}
         {profile && (
           <div className="user-wrapper">
             <p className="user-info">{profile.email}</p>
