@@ -134,6 +134,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.7;
+
+  outline: 1px solid rgba(10, 34, 74, 1);
+  padding: 5px 10px;
+
+  border-radius: 5px;
 }
 
 .navigation {
